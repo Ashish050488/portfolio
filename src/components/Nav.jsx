@@ -1,25 +1,31 @@
-import React, { useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
-import {NavButton} from '../Button/Button.jsx'
-import NavMenu from '../Button/NavMenu.jsx'
-
-
+import React from 'react';
+import Dock from '../Effect/Dock';
+import {
+  VscHome,
+  VscArchive,
+  VscAccount,
+  VscSettingsGear,
+} from 'react-icons/vsc';
 
 const Nav = () => {
-
-  const [isOpen,setIsOpen]= useState(false);
+  const items = [
+    { icon: <VscHome size={18} />, label: 'Home', onClick: () => alert('Home!') },
+    { icon: <VscArchive size={18} />, label: 'Archive', onClick: () => alert('Archive!') },
+    { icon: <VscAccount size={18} />, label: 'Profile', onClick: () => alert('Profile!') },
+    { icon: <VscSettingsGear size={18} />, label: 'Settings', onClick: () => alert('Settings!') },
+  ];
 
   return (
-    <div>
-    <div className='w-full h-14 mb-4  flex justify-center items-center'>
-      <NavButton isOpen={isOpen} setIsOpen={setIsOpen}/>
+    <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50">
+      <Dock
+        items={items}
+        panelHeight={68}
+        baseItemSize={50}
+        magnification={70}
+        className='text-white'
+      />
     </div>
+  );
+};
 
-<AnimatePresence mode="wait">
-  {isOpen && <NavMenu isOpen={isOpen} />}
-</AnimatePresence>
-    </div>
-  )
-}
-
-export default Nav
+export default Nav;
