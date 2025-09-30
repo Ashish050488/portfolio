@@ -11,6 +11,8 @@ export default function Getintouch() {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  // Add state for submission status
+  const [submissionStatus, setSubmissionStatus] = useState(null) // null, 'success', or 'error'
 
   const handleChange = (e) => {
     setFormData({
@@ -22,12 +24,29 @@ export default function Getintouch() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmissionStatus(null) // Reset status on new submission
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      const response = await fetch("https://formspree.io/f/mwprozwb", { // Your URL is now here
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-    setIsSubmitting(false)
-    setFormData({ name: "", email: "", message: "" })
+      if (response.ok) {
+        setSubmissionStatus("success")
+        setFormData({ name: "", email: "", message: "" }) // Clear form on success
+      } else {
+        throw new Error("Failed to send message.")
+      }
+    } catch (error) {
+      console.error(error)
+      setSubmissionStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -173,6 +192,17 @@ export default function Getintouch() {
               </motion.button>
             </motion.div>
           </form>
+          {/* SUCCESS/ERROR MESSAGES */}
+          {submissionStatus === "success" && (
+            <p className="mt-4 text-center text-green-600">
+              Message sent successfully! Thank you.
+            </p>
+          )}
+          {submissionStatus === "error" && (
+            <p className="mt-4 text-center text-red-600">
+              Something went wrong. Please try again later.
+            </p>
+          )}
         </motion.div>
 
         {/* Bottom Note */}

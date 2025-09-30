@@ -1,44 +1,42 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-// replace icons with your own if needed
-import {
-  FiCircle,
-  FiCode,
-  FiFileText,
-  FiLayers,
-  FiLayout,
-} from "react-icons/fi";
+// --- Icons are now imported for the tech stack ---
+import { FaReact, FaNodeJs, FaFigma, FaGitAlt } from "react-icons/fa";
+import { 
+  SiNextdotjs, 
+  SiTailwindcss, 
+  SiMongodb, 
+  SiVercel 
+} from "react-icons/si";
 
-const DEFAULT_ITEMS = [
+// --- The DEFAULT_ITEMS have been replaced with TECH_STACK ---
+const TECH_STACK = [
   {
-    title: "Text Animations",
-    description: "Cool text animations for your projects.",
     id: 1,
-    icon: <FiFileText className="h-[16px] w-[16px] text-white" />,
+    category: "Frontend",
+    skills: [
+      { name: "React", icon: <FaReact size={28} /> },
+      { name: "Next.js", icon: <SiNextdotjs size={28} /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss size={28} /> },
+      { name: "Framer Motion", icon: <FaReact size={28} /> },
+    ],
   },
   {
-    title: "Animations",
-    description: "Smooth animations for your projects.",
     id: 2,
-    icon: <FiCircle className="h-[16px] w-[16px] text-white" />,
+    category: "Backend",
+    skills: [
+      { name: "Node.js", icon: <FaNodeJs size={28} /> },
+      { name: "MongoDB", icon: <SiMongodb size={28} /> },
+    ],
   },
   {
-    title: "Components",
-    description: "Reusable components for your projects.",
     id: 3,
-    icon: <FiLayers className="h-[16px] w-[16px] text-white" />,
-  },
-  {
-    title: "Backgrounds",
-    description: "Beautiful backgrounds and patterns for your projects.",
-    id: 4,
-    icon: <FiLayout className="h-[16px] w-[16px] text-white" />,
-  },
-  {
-    title: "Common UI",
-    description: "Common UI components are coming soon!",
-    id: 5,
-    icon: <FiCode className="h-[16px] w-[16px] text-white" />,
+    category: "Tools & Platforms",
+    skills: [
+      { name: "Git", icon: <FaGitAlt size={28} /> },
+      { name: "Figma", icon: <FaFigma size={28} /> },
+      { name: "Vercel", icon: <SiVercel size={28} /> },
+    ],
   },
 ];
 
@@ -48,7 +46,8 @@ const GAP = 16;
 const SPRING_OPTIONS = { type: "spring", stiffness: 300, damping: 30 };
 
 export default function Carousel({
-  items = DEFAULT_ITEMS,
+  // The default items are now the TECH_STACK
+  items = TECH_STACK,
   baseWidth = 300,
   autoplay = false,
   autoplayDelay = 3000,
@@ -138,11 +137,11 @@ export default function Carousel({
   const dragProps = loop
     ? {}
     : {
-      dragConstraints: {
-        left: -trackItemOffset * (carouselItems.length - 1),
-        right: 0,
-      },
-    };
+        dragConstraints: {
+          left: -trackItemOffset * (carouselItems.length - 1),
+          right: 0,
+        },
+      };
 
   return (
     <div
@@ -150,7 +149,7 @@ export default function Carousel({
       className={`relative overflow-hidden p-4 ${round
         ? "rounded-full border border-white"
         : "rounded-[24px] border border-[#222]"
-        }`}
+      }`}
       style={{
         width: `${baseWidth}px`,
         ...(round && { height: `${baseWidth}px` }),
@@ -179,15 +178,12 @@ export default function Carousel({
             -(index - 1) * trackItemOffset,
           ];
           const outputRange = [90, 0, -90];
-          // eslint-disable-next-line react-hooks/rules-of-hooks
           const rotateY = useTransform(x, range, outputRange, { clamp: false });
           return (
+            // --- The content inside this motion.div is the only other change ---
             <motion.div
               key={index}
-              className={`relative shrink-0 flex flex-col ${round
-                ? "items-center justify-center text-center bg-[#060010] border-0"
-                : "items-start justify-between bg-[#222] border border-[#222] rounded-[12px]"
-                } overflow-hidden cursor-grab active:cursor-grabbing`}
+              className={`relative shrink-0 flex flex-col items-center justify-center text-white p-4 bg-[#222] border border-[#333] rounded-[12px] overflow-hidden cursor-grab active:cursor-grabbing`}
               style={{
                 width: itemWidth,
                 height: round ? itemWidth : "100%",
@@ -196,16 +192,14 @@ export default function Carousel({
               }}
               transition={effectiveTransition}
             >
-              <div className={`${round ? "p-0 m-0" : "mb-4 p-5"}`}>
-                <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#060010]">
-                  {item.icon}
-                </span>
-              </div>
-              <div className="p-5">
-                <div className="mb-1 font-black text-lg text-white">
-                  {item.title}
-                </div>
-                <p className="text-sm text-white">{item.description}</p>
+              <h3 className="text-lg font-bold mb-3 text-center">{item.category}</h3>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
+                {item.skills && item.skills.map((skill) => (
+                  <div key={skill.name} className="flex flex-col items-center justify-center text-center">
+                    <div className="text-gray-300">{skill.icon}</div>
+                    <p className="mt-1 text-xs font-medium">{skill.name}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           );
@@ -213,7 +207,7 @@ export default function Carousel({
       </motion.div>
       <div
         className={`flex w-full justify-center ${round ? "absolute z-20 bottom-12 left-1/2 -translate-x-1/2" : ""
-          }`}
+        }`}
       >
         <div className="mt-4 flex w-[150px] justify-between px-8">
           {items.map((_, index) => (
@@ -224,9 +218,9 @@ export default function Carousel({
                   ? "bg-white"
                   : "bg-[#333333]"
                 : round
-                  ? "bg-[#555]"
-                  : "bg-[rgba(51,51,51,0.4)]"
-                }`}
+                ? "bg-[#555]"
+                : "bg-[rgba(51,51,51,0.4)]"
+              }`}
               animate={{
                 scale: currentIndex % items.length === index ? 1.2 : 1,
               }}

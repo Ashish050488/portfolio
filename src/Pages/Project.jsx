@@ -32,7 +32,7 @@ export default function Project() {
 
         {/* Projects Container */}
         <motion.div
-          className="border-2 border-black rounded-2xl overflow-hidden"
+          className="border-2 border-black border-dashed rounded-2xl overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -40,7 +40,7 @@ export default function Project() {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className={`p-8 ${index !== projects.length - 1 ? "border-b-2 border-black" : ""} group cursor-pointer`}
+              className={`p-8 ${index !== projects.length - 1 ? "border-b-2 border-dashed border-black" : ""} group cursor-pointer`}
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
@@ -78,7 +78,7 @@ export default function Project() {
                     // ADD target="_blank" AND rel="noopener noreferrer" HERE
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex items-center gap-2 px-4 py-2 border border-black rounded-lg hover:bg-black hover:text-white transition-all duration-200 text-sm font-medium"
+                    className="flex items-center gap-2 px-4 py-2 border border-black border-dashed rounded-lg hover:bg-black hover:text-white transition-all duration-200 text-sm font-medium"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

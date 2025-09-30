@@ -8,6 +8,7 @@ const Comp = () => {
 <div style={{  position: 'relative' }}>
   <Carousel
     baseWidth={300}
+    baseHeight={250}
     autoplay={true}
     autoplayDelay={3000}
     pauseOnHover={true}
