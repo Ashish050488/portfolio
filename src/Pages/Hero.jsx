@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Laptop from '../assets/Laptop.svg';
 import { Link } from 'react-router-dom';
 import Particles from '../Effect/Animation';
 import { motion, AnimatePresence } from 'framer-motion';

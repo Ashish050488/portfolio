@@ -1,5 +1,4 @@
 import Nav from './components/Nav'
-import NavMenu from '../src/Button/NavMenu.jsx'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import Home from './Pages/Main/Home.jsx'
 function App() {
