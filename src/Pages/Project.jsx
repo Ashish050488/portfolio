@@ -17,7 +17,7 @@ const projects = [
 
 export default function Project() {
   return (
-    <section className="min-h-screen bg-white py-20 px-6">
+    <section id="projects" className="min-h-screen bg-white py-20 px-6">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
