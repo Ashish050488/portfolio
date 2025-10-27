@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 import { FiExternalLink, FiGithub } from "react-icons/fi"
 
@@ -8,12 +6,27 @@ const projects = [
     id: 1,
     title: "CrunchGuardian",
     description:
-      "A wallet analytics tracker for cryptocurrency investors to monitor and analyze different wallets before a transaction for the safety of theri funds.",
+      "A wallet analytics tracker for cryptocurrency investors to monitor and analyze different wallets before a transaction for the safety of their funds.",
     tech: "React • Node.js • BitCrunch Api • TailwindCSS • Github",
-    github: "https://github.com/Ashish050488/CrunchGuardian-AI",
+    github: { 
+      "Code": "https://github.com/Ashish050488/CrunchGuardian-AI"
+    },
     live: "https://my-wallet-app-theta.vercel.app/",
   },
+  {
+    id: 2,
+    title: "DevSync",
+    description:
+     "A professional networking platform for developers to discover peers, manage connections, and chat in real-time with potential collaborators.",
+    tech: "React • Node.js  • TailwindCSS • Github • AWS",
+    github: { 
+      "Frontend": "https://github.com/Ashish050488/DevSync-frontend",
+      "Backend": "https://github.com/Ashish050488/DevSync"
+    },
+    live: "http://16.171.132.28",
+  },
 ]
+
 
 export default function Project() {
   return (
@@ -59,7 +72,7 @@ export default function Project() {
                     transition={{ duration: 0.2 }}
                   >
                     {project.title}
-                  </motion.h3>
+                    </motion.h3>
 
                   <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
 
@@ -73,30 +86,33 @@ export default function Project() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
                 >
-                  <motion.a
-                    href={project.github}
-                    // ADD target="_blank" AND rel="noopener noreferrer" HERE
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="flex items-center gap-2 px-4 py-2 border border-black border-dashed rounded-lg hover:bg-black hover:text-white transition-all duration-200 text-sm font-medium"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <FiGithub size={16} />
-                    Code
-                  </motion.a>
+                  {/* --- MODIFIED GITHUB LINKS --- */}
+                  {Object.entries(project.github).map(([label, url]) => (
+                    <motion.a
+                      key={label}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      _ className="flex items-center gap-2 px-4 py-2 border border-black border-dashed rounded-lg hover:bg-black hover:text-white transition-all duration-200 text-sm font-medium"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FiGithub size={16} />
+                      {label} {/* This will display "Code", "Frontend", or "Backend" */}
+                    </motion.a>
+                  ))}
 
+                  {/* --- MODIFIED LIVE LINK --- */}
                   <motion.a
                     href={project.live}
-                    // ADD target="_blank" AND rel="noopener noreferrer" HERE
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-200 text-sm font-medium"
-                    whileHover={{ scale: 1.05 }}
+                    _ whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <FiExternalLink size={16} />
-                    Live Demo
+                    Live Site {/* Changed from "Live Demo" */}
                   </motion.a>
                 </motion.div>
               </div>
