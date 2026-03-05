@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Resume from "../../assets/Ashish_Ranjan_SWE_Resume.pdf"
+import Ashish_Ranjan_SWE_Resume from "../../assets/Ashish_Ranjan_SWE_Resume.pdf"
 
 
 export default function Footer (){
@@ -10,17 +10,17 @@ export default function Footer (){
   const socialLinks = [
     { name: "GitHub", href: "https://github.com/Ashish050488" },
     { name: "LinkedIn", href: "https://www.linkedin.com/in/dev-ashishranjan/" },
-    { name: "Resume", href: Resume },
+    { name: "Resume", href: Ashish_Ranjan_SWE_Resume },
   ]
 
   return (
-    <footer className="bg-white border-t border-gray-200 relative overflow-hidden">
+    <footer className="bg-white dark:bg-neutral-950 border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-gray-200 rounded-full"
+            className="absolute w-1 h-1 bg-gray-200 dark:bg-gray-800 rounded-full"
             style={{
               left: `${15 + i * 15}%`,
               top: "20%",
@@ -48,7 +48,7 @@ export default function Footer (){
         >
           {/* Copyright */}
           <motion.div
-            className="text-sm text-gray-600 font-light order-2 md:order-1"
+            className="text-sm text-gray-600 dark:text-gray-400 font-light order-2 md:order-1"
             initial={{ opacity: 0, x: -50, rotate: -5 }}
             animate={{ opacity: 1, x: 0, rotate: 0 }}
             transition={{
@@ -59,7 +59,6 @@ export default function Footer (){
             }}
             whileHover={{
               scale: 1.05,
-              color: "#000000",
               transition: { duration: 0.2 },
             }}
           >
@@ -84,7 +83,7 @@ export default function Footer (){
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative text-sm text-gray-700 hover:text-black transition-colors duration-300 font-medium"
+                className="group relative text-sm text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 font-medium"
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -131,7 +130,7 @@ export default function Footer (){
 
                 {/* Animated Underline */}
                 <motion.div
-                  className="absolute -bottom-1 left-0 w-full h-px bg-black origin-left"
+                  className="absolute -bottom-1 left-0 w-full h-px bg-black dark:bg-white origin-left"
                   initial={{ scaleX: 0 }}
                   whileHover={{
                     scaleX: 1,
@@ -142,7 +141,7 @@ export default function Footer (){
 
                 {/* Ripple Effect */}
                 <motion.div
-                  className="absolute inset-0 border border-gray-300 rounded opacity-0 pointer-events-none"
+                  className="absolute inset-0 border border-gray-300 dark:border-gray-700 rounded opacity-0 pointer-events-none"
                   whileHover={{
                     opacity: [0, 0.5, 0],
                     scale: [1, 1.3, 1.6],
@@ -155,8 +154,8 @@ export default function Footer (){
 
           {/* Email */}
           <motion.a
-            href="mailto:ashishar050488@gmail.com"
-            className="group relative text-sm text-gray-700 hover:text-black transition-colors duration-300 font-medium order-3"
+            href="mailto:ashish@example.com"
+            className="group relative text-sm text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 font-medium order-3"
             initial={{
               opacity: 0,
               x: 50,
@@ -177,7 +176,6 @@ export default function Footer (){
               y: -3,
               scale: 1.05,
               rotate: [-2, 2, -1, 0],
-              color: "#000000",
               transition: {
                 rotate: { duration: 0.5 },
                 y: { duration: 0.2 },
@@ -204,7 +202,7 @@ export default function Footer (){
 
             {/* Animated Underline */}
             <motion.div
-              className="absolute -bottom-1 left-0 w-full h-px bg-black origin-left"
+              className="absolute -bottom-1 left-0 w-full h-px bg-black dark:bg-white origin-left"
               initial={{ scaleX: 0 }}
               whileHover={{
                 scaleX: 1,
@@ -215,7 +213,7 @@ export default function Footer (){
 
             {/* Pulse Effect */}
             <motion.div
-              className="absolute -inset-2 border border-gray-200 rounded opacity-0 pointer-events-none"
+              className="absolute -inset-2 border border-gray-200 dark:border-gray-800 rounded opacity-0 pointer-events-none"
               animate={{
                 opacity: [0, 0.3, 0],
                 scale: [1, 1.1, 1],
@@ -231,7 +229,7 @@ export default function Footer (){
 
         {/* Animated Border Line */}
         <motion.div
-          className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"
+          className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.5, delay: 0.5 }}
@@ -239,7 +237,7 @@ export default function Footer (){
 
         {/* Floating Elements */}
         <motion.div
-          className="absolute bottom-2 right-4 w-2 h-2 bg-gray-300 rounded-full opacity-50"
+          className="absolute bottom-2 right-4 w-2 h-2 bg-gray-300 dark:bg-gray-700 rounded-full opacity-50"
           animate={{
             y: [0, -8, 0],
             scale: [1, 1.2, 1],

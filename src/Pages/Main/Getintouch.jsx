@@ -50,7 +50,7 @@ export default function Getintouch() {
   }
 
   return (
-    <section className="min-h-screen bg-white py-20 px-6">
+    <section id="contact" className="bg-white dark:bg-neutral-950 py-16 px-6">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <motion.div
@@ -59,16 +59,8 @@ export default function Getintouch() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.span
-            className="text-xs tracking-[0.3em] uppercase text-gray-400 font-medium"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
-          >
-            05 — Contact
-          </motion.span>
           <motion.h2
-            className="text-5xl md:text-6xl font-bold text-black mt-3 mb-6"
+            className="text-5xl md:text-6xl font-bold text-black dark:text-white mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -77,7 +69,7 @@ export default function Getintouch() {
           </motion.h2>
 
           <motion.p
-            className="text-lg md:text-xl text-gray-600 font-light leading-relaxed"
+            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 font-light leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -86,7 +78,7 @@ export default function Getintouch() {
           </motion.p>
 
           <motion.div
-            className="w-16 h-1 bg-black mx-auto mt-8"
+            className="w-16 h-1 bg-black dark:bg-white mx-auto mt-8"
             initial={{ width: 0 }}
             animate={{ width: 64 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -95,7 +87,7 @@ export default function Getintouch() {
 
         {/* Contact Form */}
         <motion.div
-          className="bg-white border-2 border-gray-200 rounded-2xl p-8 md:p-12 shadow-lg"
+          className="bg-white dark:bg-neutral-900 border-2 border-gray-200 dark:border-gray-800 rounded-2xl p-8 md:p-12 shadow-lg"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -107,7 +99,7 @@ export default function Getintouch() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-3">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                 Name
               </label>
               <motion.input
@@ -117,7 +109,7 @@ export default function Getintouch() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-4 border-2 border-gray-300 rounded-lg focus:border-black focus:outline-none transition-all duration-300 text-gray-900 placeholder-gray-400"
+                className="w-full px-4 py-4 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-black dark:focus:border-white focus:outline-none transition-all duration-300 text-gray-900 dark:text-white bg-white dark:bg-neutral-800 placeholder-gray-400"
                 placeholder="Your full name"
                 whileFocus={{ scale: 1.02 }}
               />
@@ -129,7 +121,7 @@ export default function Getintouch() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
             >
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-3">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                 Email
               </label>
               <motion.input
@@ -139,7 +131,7 @@ export default function Getintouch() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-4 border-2 border-gray-300 rounded-lg focus:border-black focus:outline-none transition-all duration-300 text-gray-900 placeholder-gray-400"
+                className="w-full px-4 py-4 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-black dark:focus:border-white focus:outline-none transition-all duration-300 text-gray-900 dark:text-white bg-white dark:bg-neutral-800 placeholder-gray-400"
                 placeholder="your.email@example.com"
                 whileFocus={{ scale: 1.02 }}
               />
@@ -151,7 +143,7 @@ export default function Getintouch() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 1.2 }}
             >
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-3">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                 Message
               </label>
               <motion.textarea
@@ -161,7 +153,7 @@ export default function Getintouch() {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-4 border-2 border-gray-300 rounded-lg focus:border-black focus:outline-none transition-all duration-300 text-gray-900 placeholder-gray-400 resize-none"
+                className="w-full px-4 py-4 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-black dark:focus:border-white focus:outline-none transition-all duration-300 text-gray-900 dark:text-white bg-white dark:bg-neutral-800 placeholder-gray-400 resize-none"
                 placeholder="Tell me about your project, idea, or just say hello..."
                 whileFocus={{ scale: 1.02 }}
               />
@@ -220,7 +212,7 @@ export default function Getintouch() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.6 }}
         >
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             I'll get back to you within 24 hours. Looking forward to hearing from you!
           </p>
         </motion.div>
