@@ -9,50 +9,54 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiRedis,
-  SiMysql 
+  SiMysql,
+  SiExpress
 } from "react-icons/si"
 
 const technologies = [
   { name: "React", icon: FaReact, category: "Frontend" },
-  // { name: "Next.js", icon: SiNextdotjs, category: "Frontend" },
-  // { name: "TypeScript", icon: SiTypescript, category: "Language" },
+  { name: "TypeScript", icon: SiTypescript, category: "Language" },
   { name: "JavaScript", icon: FaJs, category: "Language" },
   { name: "Node.js", icon: FaNodeJs, category: "Backend" },
+  { name: "Express.js", icon: SiExpress, category: "Backend" },
   { name: "Python", icon: FaPython, category: "Language" },
   { name: "MongoDB", icon: SiMongodb, category: "Database" },
-   { name: "MySQL", icon: SiMysql , category: "Database" },
-  // { name: "PostgreSQL", icon: SiPostgresql, category: "Database" },
+  { name: "PostgreSQL", icon: SiPostgresql, category: "Database" },
+  { name: "MySQL", icon: SiMysql, category: "Database" },
   { name: "Tailwind CSS", icon: SiTailwindcss, category: "Styling" },
-  // { name: "AWS", icon: FaAws, category: "Cloud" },
-  // { name: "Redis", icon: SiRedis, category: "Database" },
+  { name: "Docker", icon: FaDocker, category: "DevOps" },
+  { name: "AWS", icon: FaAws, category: "Cloud" },
   { name: "Git", icon: FaGitAlt, category: "Tools" },
-  // { name: "Figma", icon: FaFigma, category: "Design" },
 ]
 
 export default function TechStack() {
   return (
-    <section className="min-h-screen bg-white py-20 px-6 overflow-hidden">
+    <section className="bg-white py-24 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <motion.h2
-            className="text-5xl font-bold text-black mb-4"
-            initial={{ opacity: 0, rotateX: -90 }}
-            animate={{ opacity: 1, rotateX: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
+          <motion.span
+            className="text-xs tracking-[0.3em] uppercase text-gray-400 font-medium"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
           >
-            Technologies I Use
-          </motion.h2>
+            04 — Tech Stack
+          </motion.span>
+          <h2 className="text-5xl font-bold text-black mt-3 mb-4">Technologies I Use</h2>
           <motion.div
-            className="w-24 h-1 bg-black mx-auto"
+            className="w-24 h-1 bg-black"
             initial={{ width: 0 }}
-            animate={{ width: 96 }}
-            transition={{ duration: 1.2, delay: 0.5, ease: "easeInOut" }}
+            whileInView={{ width: 96 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
           />
         </motion.div>
 
@@ -186,7 +190,7 @@ export default function TechStack() {
             {[
               { value: `${technologies.length}+`, label: "Technologies" },
               // { value: "5+", label: "Years Experience" },
-              { value: "1+", label: "Projects Built" },
+              { value: "3+", label: "Projects Built" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
-/* In src/index.css or globals.css */
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Manrope' ,sans-serif;
+  font-family: 'Manrope', sans-serif;
+}
+
+::selection {
+  background-color: #000;
+  color: #fff;
 }

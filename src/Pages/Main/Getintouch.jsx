@@ -59,8 +59,16 @@ export default function Getintouch() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          <motion.span
+            className="text-xs tracking-[0.3em] uppercase text-gray-400 font-medium"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            05 — Contact
+          </motion.span>
           <motion.h2
-            className="text-5xl md:text-6xl font-bold text-black mb-6"
+            className="text-5xl md:text-6xl font-bold text-black mt-3 mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Ashish_MERN_Developer from "../../assets/Ashish_MERN_Developer.pdf"
+import Resume from "../../assets/Ashish_Ranjan_SWE_Resume.pdf"
 
 
 export default function Footer (){
@@ -10,7 +10,7 @@ export default function Footer (){
   const socialLinks = [
     { name: "GitHub", href: "https://github.com/Ashish050488" },
     { name: "LinkedIn", href: "https://www.linkedin.com/in/dev-ashishranjan/" },
-    { name: "Resume", href: Ashish_MERN_Developer },
+    { name: "Resume", href: Resume },
   ]
 
   return (
@@ -155,7 +155,7 @@ export default function Footer (){
 
           {/* Email */}
           <motion.a
-            href="mailto:ashish@example.com"
+            href="mailto:ashishar050488@gmail.com"
             className="group relative text-sm text-gray-700 hover:text-black transition-colors duration-300 font-medium order-3"
             initial={{
               opacity: 0,

@@ -1,12 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 // --- Icons are now imported for the tech stack ---
-import { FaReact, FaNodeJs, FaFigma, FaGitAlt } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaDocker, FaGitAlt, FaAws, FaPython } from "react-icons/fa";
 import { 
-  SiNextdotjs, 
+  SiTypescript, 
   SiTailwindcss, 
   SiMongodb, 
-  SiVercel 
+  SiPostgresql,
+  SiExpress
 } from "react-icons/si";
 
 // --- The DEFAULT_ITEMS have been replaced with TECH_STACK ---
@@ -15,10 +16,9 @@ const TECH_STACK = [
     id: 1,
     category: "Frontend",
     skills: [
-      { name: "React", icon: <FaReact size={28} /> },
-      { name: "Next.js", icon: <SiNextdotjs size={28} /> },
+      { name: "React 19", icon: <FaReact size={28} /> },
+      { name: "TypeScript", icon: <SiTypescript size={28} /> },
       { name: "Tailwind CSS", icon: <SiTailwindcss size={28} /> },
-      { name: "Framer Motion", icon: <FaReact size={28} /> },
     ],
   },
   {
@@ -26,16 +26,19 @@ const TECH_STACK = [
     category: "Backend",
     skills: [
       { name: "Node.js", icon: <FaNodeJs size={28} /> },
+      { name: "Express.js", icon: <SiExpress size={28} /> },
       { name: "MongoDB", icon: <SiMongodb size={28} /> },
+      { name: "PostgreSQL", icon: <SiPostgresql size={28} /> },
     ],
   },
   {
     id: 3,
-    category: "Tools & Platforms",
+    category: "DevOps & Tools",
     skills: [
+      { name: "Docker", icon: <FaDocker size={28} /> },
+      { name: "AWS", icon: <FaAws size={28} /> },
       { name: "Git", icon: <FaGitAlt size={28} /> },
-      { name: "Figma", icon: <FaFigma size={28} /> },
-      { name: "Vercel", icon: <SiVercel size={28} /> },
+      { name: "Python", icon: <FaPython size={28} /> },
     ],
   },
 ];
