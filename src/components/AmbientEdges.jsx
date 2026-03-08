@@ -529,6 +529,19 @@ export default function AmbientEdges() {
     <>
       <GitCanvas />
       <ApiCanvas />
+      {/* Scanline overlay — very subtle horizontal lines sweeping */}
+      <div
+        aria-hidden="true"
+        className="hidden md:block pointer-events-none fixed inset-0"
+        style={{
+          zIndex: 31,
+          background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(128,128,128,0.015) 2px, rgba(128,128,128,0.015) 4px)",
+          backgroundSize: "100% 4px",
+          animation: "scanlines 8s linear infinite",
+          maskImage: "linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 18%, transparent 82%, rgba(0,0,0,0.8) 100%)",
+          WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 18%, transparent 82%, rgba(0,0,0,0.8) 100%)",
+        }}
+      />
     </>
   )
 }

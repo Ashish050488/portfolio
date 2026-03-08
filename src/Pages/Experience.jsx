@@ -1,128 +1,75 @@
-// "use client" is needed for framer-motion on the client
-"use client"
-import { motion } from "framer-motion"
-import { FiBriefcase, FiCalendar } from "react-icons/fi"
+import { motion } from 'framer-motion'
 
-const experiences = [
+const EXP = [
   {
-    id: 1,
-    role: "FullStack  Developer",
-    company: "SniperThink",
-    period: "April 2025- June 2025",
-    location: "Remote",
-    points: [
-      "Implemented a PostgreSQL backend for live sales metrics, achieving a 35% boost in data processing with Git version control.",
-      "Deployed Node/Express RBA system for 300+ users, improving compliance by 40%.",
-      "Integrated user-plan logic to enforce purchase-based access limits (e.g., 50-user cap), ensuring licensing compliance."
+    id:1, idx:'01', period:'Jul 2025 \u2013 Present',
+    role:'Software Engineer \u2014 Full Stack', badge:'Freelance',
+    company:'Self-employed \u00b7 Remote \u00b7 Germany Market',
+    points:[
+      'Designed and deployed a production MERN job board (React 19, TypeScript, Vite, Tailwind, Node/Express, MongoDB) targeting English-speaking roles in Germany.',
+      'Built 20+ config-driven web scrapers with pagination, deduplication, and scheduled ingestion via node-cron; integrated Groq LLM for automated job classification.',
+      'Implemented full auth and moderation: JWT, admin workflows, analytics endpoints, and dead-link validation (HTTP HEAD, auto-removal of 404/410 listings).',
     ],
   },
-
+  {
+    id:2, idx:'02', period:'Apr 2025 \u2013 Jun 2025',
+    role:'Software Engineer Intern \u2014 Full Stack', badge:null,
+    company:'SniperThink \u00b7 Remote, India',
+    points:[
+      'Built a scalable PostgreSQL data layer for real-time sales metrics ingestion and aggregation, increasing processing throughput by 35%.',
+      'Developed a Node.js/Express REST API with RBAC supporting 300+ users; implemented plan-based entitlement checks to enforce licensing constraints.',
+      'Delivered KPI dashboards and analytical charts integrated with backend APIs to surface live performance insights.',
+    ],
+  },
 ]
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 32 },
-  whileInView: { opacity: 1, y: 0 },
-}
 
 export default function Experience() {
   return (
-    <section id="experience" aria-labelledby="experience-heading" className="bg-white dark:bg-neutral-950 py-16 px-6">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 id="experience-heading" className="text-5xl font-bold text-black dark:text-white mb-4 text-balance">
-            Experience
-          </h2>
-          <p className="text-lg text-gray-500 dark:text-gray-400 font-light">A quick look at my professional journey</p>
-        </motion.div>
+    <section id="experience" style={{ backgroundColor:'var(--bg)' }}>
+      <div style={{ paddingTop:'var(--pad-y)', paddingBottom:'var(--pad-y)', paddingLeft:'var(--pad-x)', paddingRight:'var(--pad-x)', maxWidth:'var(--max-w)', margin:'0 auto' }}>
 
-        {/* Timeline */}
-        <div className="relative">
+        <motion.p initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true}} transition={{duration:.6}}
+          style={{ fontFamily:"'Geist Mono',monospace", fontSize:11, letterSpacing:'.25em', textTransform:'uppercase', color:'var(--fg-muted)', display:'flex', alignItems:'center', gap:10, marginBottom:20 }}>
+          <span style={{width:24,height:1,background:'var(--fg-muted)',display:'block',flexShrink:0}}/> Experience
+        </motion.p>
 
-          <div className="space-y-6">
-            {experiences.map((item, index) => (
-              <motion.article
-                key={item.id}
-                className="relative group cursor-default border-2 border-black dark:border-white border-dashed rounded-2xl bg-white dark:bg-neutral-950 p-6 md:p-8"
-                initial={fadeInUp.initial}
-                whileInView={fadeInUp.whileInView}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: 0.1 * index }}
-              >
-                {/* Timeline node */}
-            
-                {/* Top row */}
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-6">
-                  <div className="flex items-center gap-3">
-                    <div className="inline-flex items-center justify-center rounded-md border border-black dark:border-white p-2 text-black dark:text-white">
-                      <FiBriefcase className="size-4" />
-                    </div>
-                    <div>
-                      <motion.h3
-                        className="text-2xl font-bold text-black dark:text-white"
-                        whileHover={{ x: 4 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {item.role}
-                      </motion.h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        {item.company}
-                        {item.location ? ` • ${item.location}` : ""}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 font-mono">
-                    <FiCalendar className="size-4" />
-                    <span>{item.period}</span>
-                  </div>
-                </div>
-
-                {/* Points */}
-                <ul className="mt-5 space-y-2.5">
-                  {item.points.map((point, i) => (
-                    <motion.li
-                      key={i}
-                      className="text-black/80 dark:text-white/80 flex"
-                      initial={{ opacity: 0, x: -12 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, amount: 0.3 }}
-                      transition={{ duration: 0.4, delay: 0.05 * i }}
-                    >
-                      <span className="mr-2">{"•"}</span> {/* <--- MODIFIED: Bullet moved into a span with right margin */}
-                      <span className="flex-1">{point}</span> {/* <--- MODIFIED: Text wrapped in flex-1 span */}
-                    </motion.li>
-                  ))}
-                </ul>
-
-                {/* Hover underline accent */}
-                <motion.div
-                  className="h-0.5 bg-black dark:bg-white mt-6 origin-left"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.article>
-            ))}
-          </div>
-
-          {/* Bottom Accent */}
-          <motion.div
-            className="flex justify-center mt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: 0.2 }}
-          >
-            <div className="w-16 h-0.5 bg-gray-300 dark:bg-gray-700" />
-          </motion.div>
+        <div style={{overflow:'hidden',marginBottom:'clamp(32px,5vw,64px)'}}>
+          <motion.h2 initial={{y:80,opacity:0}} whileInView={{y:0,opacity:1}} viewport={{once:true}} transition={{duration:.9,ease:[.76,0,.24,1]}}
+            style={{ fontFamily:"'Instrument Serif',serif", fontStyle:'italic', fontSize:'clamp(2rem,5vw,3.5rem)', fontWeight:400, lineHeight:1.1, color:'var(--fg)' }}>
+            A quick look at my<br/>professional journey.
+          </motion.h2>
         </div>
+
+        {EXP.map((e,i)=>(
+          <motion.article key={e.id}
+            initial={{opacity:0,y:32}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.1}} transition={{duration:.7,delay:i*.1}}
+            style={{ borderTop:'1px solid var(--border)', padding:'clamp(24px,4vw,44px) 0', display:'grid', gridTemplateColumns:'clamp(80px,12vw,130px) 1fr', gap:'clamp(16px,4vw,48px)', position:'relative' }}
+          >
+            <div>
+              <div style={{fontFamily:"'Geist Mono',monospace",fontSize:11,color:'var(--fg-muted)',letterSpacing:'.1em',marginBottom:8}}>{e.idx}</div>
+              <div style={{fontFamily:"'Geist Mono',monospace",fontSize:10,color:'var(--fg-dim)',lineHeight:1.5}}>{e.period}</div>
+            </div>
+            <div>
+              <div style={{display:'flex',alignItems:'baseline',gap:10,flexWrap:'wrap',marginBottom:4}}>
+                <h3 style={{fontFamily:"'Instrument Serif',serif",fontSize:'clamp(1.1rem,2.8vw,1.6rem)',fontWeight:400,color:'var(--fg)',lineHeight:1.2}}>{e.role}</h3>
+                {e.badge && <span style={{fontFamily:"'Geist Mono',monospace",fontSize:10,letterSpacing:'.12em',textTransform:'uppercase',color:'var(--accent)',border:'1px solid var(--accent)',padding:'2px 7px',borderRadius:99}}>{e.badge}</span>}
+              </div>
+              <p style={{fontFamily:"'Geist Mono',monospace",fontSize:11,color:'var(--fg-muted)',marginBottom:20,letterSpacing:'.04em'}}>{e.company}</p>
+              <ul style={{listStyle:'none',display:'flex',flexDirection:'column',gap:10}}>
+                {e.points.map((pt,j)=>(
+                  <motion.li key={j} initial={{opacity:0,x:-16}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{delay:.1+j*.07}}
+                    style={{display:'flex',gap:10,fontFamily:"'Geist',sans-serif",fontSize:'clamp(13px,1.4vw,14.5px)',lineHeight:1.65,color:'var(--fg-muted)'}}>
+                    <span style={{color:'var(--accent)',flexShrink:0,marginTop:2}}>→</span>
+                    <span>{pt}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+            <motion.div initial={{scaleY:0}} whileHover={{scaleY:1}}
+              style={{position:'absolute',left:-2,top:0,bottom:0,width:2,background:'var(--accent)',transformOrigin:'top'}}/>
+          </motion.article>
+        ))}
+
       </div>
     </section>
   )

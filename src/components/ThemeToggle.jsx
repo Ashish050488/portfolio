@@ -1,49 +1,35 @@
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { FiSun, FiMoon } from "react-icons/fi"
-
-function getInitialTheme() {
-  const stored = localStorage.getItem("theme")
-  if (stored === "dark" || stored === "light") return stored
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-}
+import { useState, useEffect } from 'react'
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState(getInitialTheme)
+  const [dark, setDark] = useState(true)
 
   useEffect(() => {
-    const root = document.documentElement
-    if (theme === "dark") {
-      root.classList.add("dark")
-    } else {
-      root.classList.remove("dark")
-    }
-    localStorage.setItem("theme", theme)
-  }, [theme])
+    const isDark = localStorage.getItem('theme') !== 'light'
+    setDark(isDark)
+    document.documentElement.classList.toggle('dark', isDark)
+  }, [])
 
-  const isDark = theme === "dark"
+  const toggle = () => {
+    const next = !dark
+    setDark(next)
+    localStorage.setItem('theme', next ? 'dark' : 'light')
+    document.documentElement.classList.toggle('dark', next)
+  }
 
   return (
-    <motion.button
-      type="button"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="fixed bottom-6 right-6 z-50 p-3 rounded-full border-2 border-black dark:border-white bg-white dark:bg-neutral-950 text-black dark:text-white shadow-lg cursor-pointer"
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-    >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={theme}
-          className="block"
-          initial={{ rotate: -90, opacity: 0 }}
-          animate={{ rotate: 0, opacity: 1 }}
-          exit={{ rotate: 90, opacity: 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          {isDark ? <FiSun size={20} /> : <FiMoon size={20} />}
-        </motion.span>
-      </AnimatePresence>
-    </motion.button>
+    <button onClick={toggle} aria-label="Toggle theme" style={{
+      position:'relative', width:40, height:22,
+      borderRadius:11, border:'1px solid var(--border-hi)',
+      background:'transparent', flexShrink:0,
+    }}>
+      <span style={{
+        position:'absolute', top:3,
+        left: dark ? 19 : 3,
+        width:14, height:14, borderRadius:'50%',
+        background: dark ? 'var(--accent)' : 'var(--fg-muted)',
+        display:'block',
+        transition:'left .3s cubic-bezier(.76,0,.24,1), background .3s',
+      }}/>
+    </button>
   )
 }

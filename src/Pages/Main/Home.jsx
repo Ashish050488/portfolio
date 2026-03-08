@@ -1,47 +1,36 @@
-import React from 'react'
-import { motion, useScroll, useSpring } from 'framer-motion' // eslint-disable-line no-unused-vars
-import Hero from '../Hero'
-import Project from '../Project'
-import TechStack from '../Techstack'
-import Getintouch from './Getintouch'
-import Footer from './Footer'
+import { useEffect } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
+import Cursor     from '../../components/Cursor'
+import Nav        from '../../components/Nav'
+import Hero       from '../Hero'
 import Experience from '../Experience'
-import AmbientEdges from '../../components/AmbientEdges'
-import ThemeToggle from '../../components/ThemeToggle'
+import Project    from '../Project'
+import TechStack  from '../Techstack'
+import Getintouch from './Getintouch'
+import Footer     from './Footer'
 
-const SectionDivider = () => (
-  <div className="section-divider" aria-hidden="true">
-    <span className="block w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700" />
-  </div>
-)
+export default function Home() {
+  useEffect(() => {
+    const isDark = localStorage.getItem('theme') !== 'light'
+    document.documentElement.classList.toggle('dark', isDark)
+  }, [])
 
-const Home = () => {
   const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
+  const scaleX = useSpring(scrollYProgress, { stiffness:100, damping:30 })
 
   return (
-    <div className='relative w-full'>
-      <AmbientEdges />
-      <ThemeToggle />
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-black dark:bg-white origin-left z-50"
-        style={{ scaleX }}
-        aria-hidden="true"
-      />
-      <div className="relative z-10">
-        <Hero/>
-        <SectionDivider />
-        <Experience/>
-        <SectionDivider />
-        <Project/>
-        <SectionDivider />
-        <TechStack/>
-        <SectionDivider />
-        <Getintouch/>
-      </div>
-      <Footer/>
+    <div style={{ minHeight:'100vh', backgroundColor:'var(--bg)', color:'var(--fg)' }}>
+      <Cursor />
+      <motion.div className="scroll-bar" style={{ scaleX }} aria-hidden="true" />
+      <Nav />
+      <main>
+        <Hero />
+        <Experience />
+        <Project />
+        <TechStack />
+        <Getintouch />
+      </main>
+      <Footer />
     </div>
   )
 }
-
-export default Home
