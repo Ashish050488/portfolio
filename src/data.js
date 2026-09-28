@@ -67,6 +67,9 @@ export const EXPERIENCE = [
 export const PROJECTS = [
   {
     id: 'jobmesh',
+    status: 'live',
+    flow: ['ATS portals', 'Scrapers', 'Upsert + dedup', 'LLM classify', 'MongoDB', 'Search feed'],
+    key: 'LLM classify',
     name: 'JobMesh',
     kind: 'Job aggregation platform',
     year: '2026',
@@ -82,6 +85,9 @@ export const PROJECTS = [
   },
   {
     id: 'ejg',
+    status: 'live',
+    flow: ['2,853 boards', 'SHA-256 diff', 'Gemini / Gemma', 'MongoDB', 'Cache', 'WhatsApp'],
+    key: 'SHA-256 diff',
     name: 'English Jobs Germany',
     kind: 'AI-powered job board',
     year: '2025',
@@ -97,6 +103,9 @@ export const PROJECTS = [
   },
   {
     id: 'proxyclaw',
+    status: 'live',
+    flow: ['React 19 UI', 'Hardened API', 'Orchestrator', 'Docker', 'Agents', 'Billing'],
+    key: 'Orchestrator',
     name: 'ProxyClaw',
     kind: 'AI agent deployment SaaS',
     year: '2026',
@@ -112,6 +121,9 @@ export const PROJECTS = [
   },
   {
     id: 'crunch',
+    status: 'built',
+    flow: ['Wallet address', 'Node API', 'BitCrunch', 'Risk score', 'Dashboard'],
+    key: 'Risk score',
     name: 'CrunchGuardian',
     kind: 'Crypto wallet risk analytics',
     year: '2025',
@@ -123,11 +135,14 @@ export const PROJECTS = [
     study: {
       problem: 'No quick way to judge whether a wallet is safe before a transfer.',
       approach: 'BitCrunch analytics surfaced as a risk score, history and behavioural patterns.',
-      impact: 'Wallet risk visible in seconds, pre-transaction.',
+      impact: 'Wallet risk visible in seconds, pre-transaction. No longer hosted; the source is on GitHub.',
     },
   },
   {
     id: 'devsync',
+    status: 'built',
+    flow: ['Profiles', 'Match by stack', 'Connections', 'WebSocket chat', 'AWS EC2'],
+    key: 'WebSocket chat',
     name: 'DevSync',
     kind: 'Developer networking',
     year: '2025',
@@ -139,7 +154,7 @@ export const PROJECTS = [
     study: {
       problem: 'Developers had no dedicated place to find peers by stack.',
       approach: 'MERN platform with WebSocket chat, connection management and developer profiles.',
-      impact: 'Discovery plus real-time messaging in one place.',
+      impact: 'Discovery plus real-time messaging in one place. No longer hosted; the source is on GitHub.',
     },
   },
 ]
@@ -151,4 +166,14 @@ export const STACK = [
   { layer: 'Intelligence', items: ['Gemini', 'Gemma', 'Structured extraction', 'Model fallback', 'Python'] },
   { layer: 'Infrastructure', items: ['Docker', 'AWS EC2', 'Vercel', 'Git', 'CI'] },
   { layer: 'Security', items: ['IDOR defence', 'Injection hardening', 'Rate limiting', 'Helmet / CORS', 'Auth throttling'] },
+]
+
+// Before/after pairs for the load schedule. ratio = share of the bar the "after" value fills.
+export const LOADS = [
+  { ref: 'L-01', what: 'Scraper runtime', where: 'English Jobs Germany', before: '45 min', after: '~6 min', ratio: 6 / 45, lower: true },
+  { ref: 'L-02', what: 'AI cache size', where: 'English Jobs Germany', before: '87 MB', after: '2.2 MB', ratio: 2.2 / 87, lower: true },
+  { ref: 'L-03', what: 'Ledger accounts per sync', where: 'Livo Assistant · Zoho Books', before: '200', after: '5,000', ratio: 1, from: 200 / 5000 },
+  { ref: 'L-04', what: 'Job boards covered', where: '9 ATS platforms', before: '0', after: '2,853', ratio: 1, from: 0 },
+  { ref: 'L-05', what: 'Scheduled runs green', where: 'After the re-architecture', before: '—', after: '39 / 39', ratio: 1, from: 0 },
+  { ref: 'L-06', what: 'Security regression tests', where: 'Livo Assistant', before: '—', after: '60', ratio: 1, from: 0 },
 ]
