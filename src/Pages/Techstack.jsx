@@ -1,12 +1,17 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { FaReact, FaNodeJs, FaGitAlt, FaDocker, FaAws } from 'react-icons/fa'
-import { SiTypescript, SiPostgresql, SiTailwindcss } from 'react-icons/si'
+import { SiTypescript, SiPostgresql, SiTailwindcss, SiMongodb, SiExpress, SiPython, SiRedux, SiMysql } from 'react-icons/si'
 
 const TECH = [
   { name:'React',       Icon:FaReact       },
   { name:'TypeScript',  Icon:SiTypescript  },
+  { name:'Python',      Icon:SiPython      },
+  { name:'Redux',       Icon:SiRedux       },
   { name:'Node.js',     Icon:FaNodeJs      },
+  { name:'Express',     Icon:SiExpress     },
+  { name:'MongoDB',     Icon:SiMongodb     },
+  { name:'MySQL',       Icon:SiMysql       },
   { name:'PostgreSQL',  Icon:SiPostgresql  },
   { name:'TailwindCSS', Icon:SiTailwindcss },
   { name:'Docker',      Icon:FaDocker      },
@@ -38,7 +43,7 @@ export default function TechStack() {
             initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true}}
             style={{fontFamily:"'Geist Mono',monospace",fontSize:11,letterSpacing:'.25em',textTransform:'uppercase',color:'var(--fg-muted)',display:'flex',alignItems:'center',gap:10,marginBottom:16}}>
             <span style={{width:24,height:1,background:'var(--fg-muted)',display:'block'}}/>
-            08 Technologies
+            {String(TECH.length).padStart(2,'0')} Technologies
           </motion.p>
           <div style={{overflow:'hidden',marginBottom:8}}>
             <motion.h2

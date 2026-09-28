@@ -2,23 +2,33 @@ import { motion } from 'framer-motion'
 
 const EXP = [
   {
-    id:1, idx:'01', period:'Jul 2025 \u2013 Present',
-    role:'Software Engineer \u2014 Full Stack', badge:'Freelance',
-    company:'Self-employed \u00b7 Remote \u00b7 Germany Market',
+    id:1, idx:'01', period:'Jun 2026 – Present',
+    role:'Software Development Engineer — Livo Assistant', badge:'Current',
+    company:'Chillspace Labs Pvt. Ltd. · Bengaluru, India',
     points:[
-      'Designed and deployed a production MERN job board (React 19, TypeScript, Vite, Tailwind, Node/Express, MongoDB) targeting English-speaking roles in Germany.',
-      'Built 20+ config-driven web scrapers with pagination, deduplication, and scheduled ingestion via node-cron; integrated Groq LLM for automated job classification.',
-      'Implemented full auth and moderation: JWT, admin workflows, analytics endpoints, and dead-link validation (HTTP HEAD, auto-removal of 404/410 listings).',
+      'Architected and shipped a GST reconciliation engine from scratch — 2B matching, ITC carry-forward, versioned reconciliation history, and the full return lifecycle for a CA-firm compliance platform.',
+      'Re-engineered Zoho Books ledger sync with paginated ingestion, watermark-based incremental sync, retry/backoff, and per-account failure isolation; raised the account-fetch ceiling from 200 to 5,000 and eliminated silent data loss.',
+      'Built and re-architected a full payroll platform into a versioned, non-destructive accept/reject/cancel lifecycle with validation, safe spreadsheet exports, and automated PDF/email outputs.',
+      'Led application-security hardening across cross-tenant IDOR, XLSX formula injection, email-header injection, XSS and auth abuse; redesigned login throttling with separate DoS/brute-force controls backed by 60 automated tests.',
     ],
   },
   {
-    id:2, idx:'02', period:'Apr 2025 \u2013 Jun 2025',
-    role:'Software Engineer Intern \u2014 Full Stack', badge:null,
-    company:'SniperThink \u00b7 Remote, India',
+    id:2, idx:'02', period:'Jul 2025 – May 2026',
+    role:'Software Engineer — Full Stack', badge:'Freelance',
+    company:'englishjobsgermany.com · Remote · Germany Market',
     points:[
-      'Built a scalable PostgreSQL data layer for real-time sales metrics ingestion and aggregation, increasing processing throughput by 35%.',
-      'Developed a Node.js/Express REST API with RBAC supporting 300+ users; implemented plan-based entitlement checks to enforce licensing constraints.',
-      'Delivered KPI dashboards and analytical charts integrated with backend APIs to surface live performance insights.',
+      'Re-architected a scraping pipeline across 9 ATS platforms and 2,853 job boards with SHA-256 change detection, dedup, safe expiry and MongoDB bulk writes — cutting runtime from a 45-min timeout to ~6 min, with 39/39 scheduled runs succeeding.',
+      'Engineered production AI workflows with Gemini and Gemma for German-requirement classification, structured extraction and resume matching, with pre-LLM filtering, confidence-based review, multi-model fallback and quota management.',
+      'Built end-to-end WhatsApp job-distribution automation with scheduled workflows and deduplication to deliver recurring job content and drive engagement.',
+      'Shipped reliability work — MongoDB change-stream cache sync, indexed in-memory search, async resume parsing, cache warm-up — and shrank AI cache storage by 97.5% (87 MB → 2.2 MB).',
+    ],
+  },
+  {
+    id:3, idx:'03', period:'Apr 2025 – Jun 2025',
+    role:'Software Engineer Intern — Full Stack', badge:null,
+    company:'SniperThink · Remote, India',
+    points:[
+      'Rebuilt the PostgreSQL data layer and designed a Node.js/Express REST API with RBAC, resolving critical data-consistency failures and enforcing isolated Admin, Owner, and User access.',
     ],
   },
 ]

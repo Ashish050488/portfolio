@@ -4,7 +4,23 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi'
 
 const PROJECTS = [
   {
-    id:1, idx:'01', year:'2026',
+    id:10, idx:'01', year:'2026',
+    title:'JobMesh', sub:'Job Aggregation Platform',
+    live:'https://jobmesh.in', github:null, live_badge:true,
+    tech:'Node.js · MongoDB · React · LLM Classification · node-cron',
+    desc:'A job aggregation platform that continuously scrapes 2,000+ listings from 100+ companies across multiple ATS platforms and surfaces them in one clean, searchable feed.',
+    study:{ problem:'Job seekers in India had to check dozens of company career pages and ATS portals separately to find relevant openings.', approach:'Built multi-ATS ingestion with upsert-based deduplication, plus LLM-powered classification and keyword filtering to keep listings relevant and consistent.', impact:'Live at jobmesh.in with 2,000+ listings from 100+ companies, driving organic usage across India.' },
+  },
+  {
+    id:11, idx:'02', year:'2025',
+    title:'English Jobs Germany', sub:'AI-Powered Job Board',
+    live:'https://englishjobsgermany.com', github:null, live_badge:true,
+    tech:'React · TypeScript · Node.js · MongoDB · Gemini / Gemma · WhatsApp Automation',
+    desc:'A production job board for English-speaking roles in Germany, fed by a scraping pipeline across 9 ATS platforms and 2,853 job boards with AI classification of German-language requirements.',
+    study:{ problem:'English speakers in Germany struggle to find roles that do not quietly require German — and listings go stale fast.', approach:'SHA-256 change detection, dedup and bulk writes in the pipeline; Gemini/Gemma classification with multi-model fallback; change-stream cache sync and WhatsApp distribution.', impact:'Runtime cut from a 45-min timeout to ~6 min, 39/39 scheduled runs succeeding, and AI cache storage reduced by 97.5%.' },
+  },
+  {
+    id:1, idx:'03', year:'2026',
     title:'ProxyClaw', sub:'AI Agent Deployment SaaS',
     live:'https://proxyclaw.xyz', github:null, live_badge:true,
     tech:'React 19 \u00b7 Node.js \u00b7 Docker \u00b7 WebSockets \u00b7 TanStack Query \u00b7 Zustand',
@@ -12,7 +28,7 @@ const PROJECTS = [
     study:{ problem:'Deploying AI agents required deep infrastructure knowledge, creating a high barrier for non-technical teams.', approach:'Built production-grade API security (rate limiting, Helmet, CORS), Docker orchestration, WebSocket handling, and a React 19 frontend with real-time workflows.', impact:'Live SaaS product at proxyclaw.xyz serving real users with production-grade reliability.' },
   },
   {
-    id:2, idx:'02', year:'2025',
+    id:2, idx:'04', year:'2025',
     title:'CrunchGuardian', sub:'Crypto Wallet Analytics',
     live:'https://my-wallet-app-theta.vercel.app/', github:{Code:'https://github.com/Ashish050488/CrunchGuardian-AI'}, live_badge:false,
     tech:'React \u00b7 Node.js \u00b7 BitCrunch API \u00b7 TailwindCSS',
@@ -20,7 +36,7 @@ const PROJECTS = [
     study:{ problem:'Crypto investors had no easy way to assess wallet safety before sending funds.', approach:"Integrated BitCrunch's wallet analytics API to surface risk scores, transaction history, and behavioral patterns.", impact:"Users evaluate any wallet's risk profile in seconds before initiating transactions." },
   },
   {
-    id:3, idx:'03', year:'2025',
+    id:3, idx:'05', year:'2025',
     title:'DevSync', sub:'Developer Networking Platform',
     live:'http://16.171.132.28', github:{Frontend:'https://github.com/Ashish050488/DevSync-frontend',Backend:'https://github.com/Ashish050488/DevSync'}, live_badge:false,
     tech:'React \u00b7 Node.js \u00b7 TailwindCSS \u00b7 AWS EC2 \u00b7 WebSockets',
@@ -50,7 +66,7 @@ export default function Project() {
               Projects<span style={{color:'var(--accent)'}}>.</span>
             </h2>
           </div>
-          <span style={{fontFamily:"'Geist Mono',monospace",fontSize:12,color:DIM,alignSelf:'flex-end',paddingBottom:8}}>[ 03 ]</span>
+          <span style={{fontFamily:"'Geist Mono',monospace",fontSize:12,color:DIM,alignSelf:'flex-end',paddingBottom:8}}>[ 05 ]</span>
         </div>
 
         {PROJECTS.map(p=>(
