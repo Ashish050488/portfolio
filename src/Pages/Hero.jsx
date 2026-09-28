@@ -3,11 +3,11 @@ import { motion } from 'framer-motion'
 
 const LINES = [
   { cmd:true,  text:'ls projects/' },
-  { cmd:false, text:'ProxyClaw/  CrunchGuardian/  DevSync/' },
+  { cmd:false, text:'livo-assistant/  jobmesh/  englishjobsgermany/' },
   { cmd:true,  text:'git log --oneline -1' },
-  { cmd:false, text:'a3f19c2 feat: real-time WebSocket chat' },
-  { cmd:true,  text:'npm run build' },
-  { cmd:false, text:'\u2713 compiled in 2.4s' },
+  { cmd:false, text:'a3f19c2 feat: GST 2B reconciliation engine' },
+  { cmd:true,  text:'npm test' },
+  { cmd:false, text:'\u2713 60 passing (security suite)' },
 ]
 
 function useTyping() {
@@ -52,9 +52,9 @@ const fade = d => ({ initial:{opacity:0,y:28}, animate:{opacity:1,y:0}, transiti
 
 export default function Hero() {
   const { rows, on } = useTyping()
-  const p1 = useCount(3,   1000)
+  const p1 = useCount(5,   1000)
   const p2 = useCount(1,   1400)
-  const p3 = useCount(300, 1200)
+  const p3 = useCount(2853, 1200)
 
   return (
     <section id="hero" style={{ backgroundColor:'var(--bg)' }}>
@@ -85,10 +85,10 @@ export default function Hero() {
               Ashish<br/>Ranjan<span style={{color:'var(--accent)'}}>.</span>
             </motion.h1>
 
-            <motion.p {...fade(.35)} style={{ fontFamily:"'Geist Mono',monospace", fontSize:12, letterSpacing:'.18em', textTransform:'uppercase', color:'var(--accent)', marginBottom:'clamp(12px,2vw,18px)' }}>Fullstack Engineer</motion.p>
+            <motion.p {...fade(.35)} style={{ fontFamily:"'Geist Mono',monospace", fontSize:12, letterSpacing:'.18em', textTransform:'uppercase', color:'var(--accent)', marginBottom:'clamp(12px,2vw,18px)' }}>Software Development Engineer</motion.p>
 
             <motion.p {...fade(.48)} style={{ fontFamily:"'Geist',sans-serif", fontSize:'clamp(14px,1.6vw,15.5px)', lineHeight:1.75, color:'var(--fg-muted)', maxWidth:420, marginBottom:'clamp(28px,4vw,40px)' }}>
-              Fullstack engineer with ~1 year of production experience. I ship scalable systems — MERN stacks, SaaS backends, LLM-powered pipelines — and obsess over the details.
+              Full-stack engineer building production SaaS — multi-tenant platforms, AI-assisted workflows, and third-party integrations. Currently shipping compliance & payroll systems at Livo Assistant, with a focus on reliability, security, and data integrity.
             </motion.p>
 
             <motion.button {...fade(.6)}
@@ -127,7 +127,7 @@ export default function Hero() {
           {[
             { val:String(p1).padStart(2,'0'), label:'Projects' },
             { val:p2+'+',                    label:'Yrs Experience' },
-            { val:p3+'+',                    label:'Users Served' },
+            { val:p3.toLocaleString('en-US')+'+', label:'Job Boards Scraped' },
           ].map(s=>(
             <div key={s.label}>
               <div style={{ fontFamily:"'Instrument Serif',serif", fontSize:'clamp(2rem,5vw,3.2rem)', fontWeight:400, lineHeight:1, color:'var(--fg)', letterSpacing:'-.02em' }}>{s.val}</div>

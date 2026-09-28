@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FiGithub, FiLinkedin, FiMail, FiFileText } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiFileText, FiCode } from 'react-icons/fi'
 import ResumeFile from '../../assets/Ashish_Ranjan_SWE_Resume.pdf'
 
 const FG   = '#EDEDED'
@@ -71,6 +71,7 @@ export default function Getintouch() {
             {[
               {label:'GitHub',   href:'https://github.com/Ashish050488',          Icon:FiGithub  },
               {label:'LinkedIn', href:'https://linkedin.com/in/dev-ashishranjan', Icon:FiLinkedin},
+              {label:'LeetCode', href:'https://leetcode.com/ashish050488',       Icon:FiCode    },
               {label:'Email',    href:'mailto:ashishar050488@gmail.com',           Icon:FiMail    },
               {label:'Resume',   href:ResumeFile,                                  Icon:FiFileText},
             ].map(l=>(
@@ -88,7 +89,7 @@ export default function Getintouch() {
             </div>
             <div style={{marginTop:24}}>
               <p style={{fontFamily:"'Geist Mono',monospace",fontSize:10,letterSpacing:'.16em',textTransform:'uppercase',color:DIM,marginBottom:6}}>Education</p>
-              <p style={{fontFamily:"'Geist Mono',monospace",fontSize:11,color:'rgba(237,237,237,.3)',lineHeight:1.6}}>B.Tech {'\u2014'} AI & Machine Learning<br/>LNCT, Bhopal {'\u00b7'} Graduating 2026</p>
+              <p style={{fontFamily:"'Geist Mono',monospace",fontSize:11,color:'rgba(237,237,237,.3)',lineHeight:1.6}}>B.Tech {'\u2014'} AI & Machine Learning<br/>LNCT, Bhopal {'\u00b7'} Class of 2026</p>
             </div>
           </div>
         </div>
